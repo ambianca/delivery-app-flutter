@@ -108,6 +108,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 4),
                   TextFormField(
+                    // initialValue deixa o campo já preenchido com um exemplo,
+                    // assim dá para entrar direto só tocando em "Entrar"
+                    initialValue: 'bianca@saborja.com',
                     keyboardType: TextInputType.emailAddress, // teclado com @
                     decoration: estiloCampo('Digite seu e-mail', Icons.email),
                     // validator devolve um texto de erro ou null (tudo certo)
@@ -130,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 4),
                   TextFormField(
+                    initialValue: '123456', // senha de exemplo
                     obscureText: esconderSenha, // troca o texto por pontinhos
                     decoration: estiloCampo('Digite sua senha', Icons.lock)
                         .copyWith(

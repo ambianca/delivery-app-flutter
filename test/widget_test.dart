@@ -18,7 +18,12 @@ void main() {
   testWidgets('Login valida os campos e abre a página inicial', (tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Tenta entrar com os campos vazios: aparecem os avisos
+    // Os campos já começam com o e-mail e a senha de exemplo
+    expect(find.text('bianca@saborja.com'), findsOneWidget);
+
+    // Apaga os dois campos e tenta entrar: aparecem os avisos
+    await tester.enterText(find.byType(TextFormField).at(0), '');
+    await tester.enterText(find.byType(TextFormField).at(1), '');
     await tester.tap(find.widgetWithText(FilledButton, 'Entrar'));
     await tester.pump();
     expect(find.text('Digite seu e-mail'), findsWidgets);
